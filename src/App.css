@@ -1,0 +1,14 @@
+:root {
+  --lcbo-medium-brown: rgb(196, 160, 119);
+  --lcbo-brown: rgb(82, 44, 27);
+  --lcbo-light-brown: rgb(245, 223, 190);
+  --lcbo-grey: rgb(165, 186, 187);
+}
+
+body {
+  font-family: "Open Sans";
+}
+
+h1 {
+  font-family: "Abril Fatface";
+}
