@@ -1,0 +1,17 @@
+.back {
+  background: var(--lcbo-brown);
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.stores {
+  background: var(--lcbo-medium-brown);
+  position: relative;
+  margin: 0 auto;
+  width: 1000px;
+  height: 100vh;
+  overflow-y: scroll;
+}
