@@ -1,12 +1,47 @@
 import React, { Component } from "react";
 import styled from "styled-components";
+import Beer from "./Beer";
 
-const Columns = styled.div`
-  column-count: 5;
-`;
+const Table = styled.ul`
+  display: table;
+  margin: 0 auto;
+  width: 1000px;
 
-const Card = styled.div`
-  & img {
+  & li {
+    margin: 15px;
+    box-sizing: border-box;
+    list-style-type: none;
+    display: table-cell;
+    position: relative;
+    overflow: hidden;
+    float: left;
+    height: 200px;
+    width: calc(20% - 30px);
+    padding: 2px;
+
+    &:hover,
+    &:focus {
+      box-shadow: 0 0.5em 0.5em -0.4em rgba(245, 224, 190, 0.3);
+      transform: translateY(-0.25em);
+    }
+  }
+
+  & li img {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50%;
+  }
+
+  & li .content {
+    text-decoration: none;
+    position: absolute;
+    bottom: 0;
+
+    & p {
+      font-size: 12px;
+      font-weight: bold;
+    }
   }
 `;
 
@@ -72,7 +107,7 @@ class Beers extends Component {
     const { loading, beers } = this.state;
     return (
       <div>
-        <Columns className="card-columns">
+        <Table>
           {loading
             ? "Loading"
             : beers
@@ -83,25 +118,9 @@ class Beers extends Component {
                     ele.is_dead === false
                 )
                 .map(beer => {
-                  return (
-                    <Card class="card">
-                      <img
-                        src={
-                          beer.image_thumb_url
-                            ? beer.image_thumb_url
-                            : "https://beaus.ca/wp-content/themes/beaus_2016/assets/build/img/beaus-black-logo.svg"
-                        }
-                        class="card-img-top"
-                        alt={beer.name}
-                      />
-                      <div class="card-body">
-                        <h5 class="card-title">{beer.name}</h5>
-                        <p class="card-text">{beer.tags}</p>
-                      </div>
-                    </Card>
-                  );
+                  return <Beer beer={beer} />;
                 })}
-        </Columns>
+        </Table>
       </div>
     );
   }
