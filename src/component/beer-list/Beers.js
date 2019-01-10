@@ -16,9 +16,12 @@ const Table = styled.ul`
     position: relative;
     overflow: hidden;
     float: left;
-    height: 180px;
+    height: 220px;
     width: calc(20% - 30px);
-    padding: 5px;
+    padding: 0;
+    transition-property: transform;
+    transition-duration: 300ms;
+    transition-timing-function: ease;
     a {
       color: inherit;
     }
@@ -34,11 +37,18 @@ const Table = styled.ul`
   & li img {
     position: relative;
     left: 50%;
-    transform: translateX(-50%);
+    top: 50%;
+    transform: translate(-50%, -50%);
     width: 50%;
   }
 
   & li .content {
+    background: rgba(245, 223, 190, 0.6);
+    color: #000;
+    padding: 5px;
+    margin: 0;
+
+    width: 100%;
     text-decoration: none;
     position: absolute;
     bottom: 0;
@@ -46,6 +56,7 @@ const Table = styled.ul`
       text-decoration: none;
     }
     & p {
+      text-align: center;
       text-decoration: none;
       font-size: 12px;
       font-weight: bold;
