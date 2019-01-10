@@ -1,11 +1,21 @@
 import React, { Component } from "react";
 
 const Context = React.createContext();
-const Reducer = (state, action) => {};
+const Reducer = (state, action) => {
+  switch (action.type) {
+    case "LOAD_BEER":
+      return {
+        ...state,
+        beer: action.payload
+      };
+    default:
+      return state;
+  }
+};
 
 export class Provider extends Component {
   state = {
-    beers: [],
+    beer: {},
     dispatch: action => {
       this.setState(state => Reducer(state, action));
     }

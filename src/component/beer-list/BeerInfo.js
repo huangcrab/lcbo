@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Consumer } from "../../context/MainContext";
 import styled from "styled-components";
 import Store from "./Store";
 import "./beerinfo.css";
@@ -10,7 +11,6 @@ class BeerInfo extends Component {
       key:
         "MDo4MGMwOTk4MC0xMDRhLTExZTktYmEzNi0zMzQ4ODcyMDk4NGI6VmtodmM0cEFISnpLbk9vY3RrSXpRMk5nQ3pUdThVOHB0UEFT",
       loading: false,
-      beer: {},
       stores: [],
       error: {}
     };
@@ -36,29 +36,37 @@ class BeerInfo extends Component {
   }
 
   render() {
-    const { stores, loading } = this.state;
     return (
-      <div className="back">
-        {loading ? (
-          "loading"
-        ) : (
-          <div className="container">
-            <div className="beer-info">
-              <div className="beer-img">
-                <img src="" alt="" />
-              </div>
-              <div className="beer-name">Beer Name</div>
-              <div className="beer-info">Beer Info</div>
-              <div className="beer-price">Beer Price</div>
+      <Consumer>
+        {value => {
+          const { beer } = value;
+          const { stores, loading } = this.state;
+          return (
+            <div className="back">
+              {loading ? (
+                "loading"
+              ) : (
+                <div className="container">
+                  <div className="beer-info">
+                    <div className="beer-img">
+                      <img src={beer.image_url} alt="beer img" />
+                    </div>
+                    <div className="beer-name">{beer.name}</div>
+                    <div className="beer-des">Beer Des</div>
+                    <div className="beer-price">Beer Price</div>
+                  </div>
+                  <div className="title">In-Store Availablity</div>
+                  <div className="stores">
+                    {stores.map(store => {
+                      return <Store store={store} />;
+                    })}
+                  </div>
+                </div>
+              )}
             </div>
-            <div className="stores">
-              {stores.map(store => {
-                return <Store store={store} />;
-              })}
-            </div>
-          </div>
-        )}
-      </div>
+          );
+        }}
+      </Consumer>
     );
   }
 }

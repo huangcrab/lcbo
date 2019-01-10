@@ -8,7 +8,100 @@
 body {
   font-family: "Open Sans";
 }
+/*--------------------
+Hero
+---------------------*/
 
-h1 {
+section.hero {
+  position: relative;
+  height: 485px;
+  padding: 60px;
+  background: url("/assets/large.jpg");
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  background-size: 100% auto;
+}
+
+/*--------------------
+Call To Actions
+---------------------*/
+
+.cta {
+  float: right;
+  height: 260px;
+  width: 420px;
+  border: 12px solid #000;
+  margin-top: 80px;
+  padding: 20px;
+  font-weight: 800;
+  letter-spacing: -3px;
+  font-size: 60px;
+  color: #000;
+  line-height: 0.5;
   font-family: "Abril Fatface";
+  -webkit-box-shadow: 0px 7px 12px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 0px 7px 12px rgba(0, 0, 0, 0.4);
+  box-shadow: 0px 7px 12px rgba(0, 0, 0, 0.4);
+}
+
+.cta > span {
+  font-family: "Open Sans";
+  font-size: 28px;
+  font-weight: 400;
+}
+
+.button-cta {
+  height: 46px;
+  position: absolute;
+  right: 270px;
+  bottom: 69px;
+  background-color: var(--lcbo-grey);
+  border: 3px solid var(--lcbo-brown);
+  font-weight: 600;
+  font-size: 24px;
+  letter-spacing: -1px;
+  z-index: 1;
+  padding: 2px 23px;
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, sans-serif;
+  color: var(--lcbo-brown);
+
+  -webkit-border-radius: 23px;
+  -moz-border-radius: 23px;
+  border-radius: 23px;
+
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.button-cta:hover {
+  background-color: #272625;
+  color: var(--lcbo-light-brown);
+  cursor: pointer;
+
+  -webkit-box-shadow: 0px 7px 12px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 0px 7px 12px rgba(0, 0, 0, 0.4);
+  box-shadow: 0px 7px 12px rgba(0, 0, 0, 0.4);
+}
+
+.button-cta:hover {
+  border: 3px solid var(--lcbo-light-brown);
+}
+
+.logo {
+  position: relative;
+  margin-top: 80px;
+}
+
+.title {
+  position: relative;
+  text-align: center;
+  font-size: 40px;
+  border: solid 5px;
+  margin: 20px auto;
+  width: 80%;
+  box-shadow: 0px 7px 12px rgba(0, 0, 0, 0.4);
+  font-family: "Abril Fatface";
+  background: var(--lcbo-medium-brown);
 }

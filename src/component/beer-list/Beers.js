@@ -5,7 +5,8 @@ import Beer from "./Beer";
 const Table = styled.ul`
   display: table;
   margin: 0 auto;
-  width: 1000px;
+  width: 80%;
+  padding: 0;
 
   & li {
     margin: 15px;
@@ -15,14 +16,18 @@ const Table = styled.ul`
     position: relative;
     overflow: hidden;
     float: left;
-    height: 200px;
+    height: 180px;
     width: calc(20% - 30px);
-    padding: 2px;
+    padding: 5px;
+    a {
+      color: inherit;
+    }
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.4);
 
     &:hover,
     &:focus {
-      box-shadow: 0 0.5em 0.5em -0.4em rgba(245, 224, 190, 0.3);
-      transform: translateY(-0.25em);
+      box-shadow: 0px 7px 12px rgba(0, 0, 0, 0.4);
+      transform: translateY(-5px);
     }
   }
 
@@ -37,8 +42,11 @@ const Table = styled.ul`
     text-decoration: none;
     position: absolute;
     bottom: 0;
-
+    &:link {
+      text-decoration: none;
+    }
     & p {
+      text-decoration: none;
       font-size: 12px;
       font-weight: bold;
     }
@@ -107,6 +115,7 @@ class Beers extends Component {
     const { loading, beers } = this.state;
     return (
       <div>
+        <div className="title">Seasonal List</div>
         <Table>
           {loading
             ? "Loading"
